@@ -13,9 +13,7 @@
 
 "use strict";
 
-var default_symbol = 'kB',
-
-    symbols = ['k'   , 'M'   , 'G'   , 'T'   , 'P'   , 'E'  , 'Z'    , 'Y'],
+var symbols = ['k'   , 'M'   , 'G'   , 'T'   , 'P'   , 'E'  , 'Z'    , 'Y'],
     names   = ['kilo', 'mega', 'giga', 'tera', 'peta', 'exa', 'zetta', 'yotta'],
 
     map = {symbols: {}, names: {}};
@@ -30,11 +28,31 @@ symbols.forEach(function (symbol, index) {
 	map.names  [symbol] = name;
 });
 
+map.names  ['KB'] = map.names  ['kB'];
+map.symbols['KB'] = map.symbols['kB'];
 
-exports.in_bytes = function (bytes, symbol) {
-	return bytes * Math.pow(2, (10 * (map.symbols[symbol || default_symbol] + 1)));
+exports = module.exports = function (value, fromSymbol) {
+	var bytes = exports.to_bytes(value, fromSymbol);
+
+	function convert_to (toSymbol) {
+		return exports[fromSymbol ? 'from_bytes' : 'to_bytes'](bytes, toSymbol);
+	}
+
+	symbols.forEach(function (apiSymbol, index) {
+		convert_to['to_' + apiSymbol] = function () {return convert_to(apiSymbol);};
+	});
+
+	return convert_to;
+};
+
+exports.from_bytes = function (bytes, symbol) {
+	return symbol ? bytes / exports.to_bytes(1, symbol) : bytes;
+};
+
+exports.to_bytes = function (value, symbol) {
+	return symbol ? value * Math.pow(2, (10 * (map.symbols[symbol] + 1))) : value;
 };
 
 exports.symbol_name = function (symbol) {
-	return map.names[symbol || default_symbol];
+	return symbol ? map.names[symbol] : 'byte';
 };
