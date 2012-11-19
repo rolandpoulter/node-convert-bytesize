@@ -46,6 +46,8 @@ exports = module.exports = function (value, fromSymbol) {
 		convert_to['to_' + apiSymbol] = function () {return convert_to(apiSymbol);};
 	});
 
+	convert_to.to_bytes = function () {return bytes;};
+
 	return convert_to;
 };
 
