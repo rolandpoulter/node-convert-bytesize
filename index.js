@@ -42,7 +42,7 @@ exports = module.exports = function (value, fromSymbol) {
 		return exports[fromSymbol ? 'from_bytes' : 'to_bytes'](bytes, toSymbol);
 	}
 
-	symbols.forEach(function (apiSymbol, index) {
+	Object.keys(map.symbols).forEach(function (apiSymbol) {
 		convert_to['to_' + apiSymbol] = function () {return convert_to(apiSymbol);};
 	});
 
