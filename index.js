@@ -22,10 +22,14 @@ names   = names  .map(function (name)   {return name   + 'byte';});
 symbols = symbols.map(function (symbol) {return symbol + 'B';});
 
 symbols.forEach(function (symbol, index) {
-	var name = names[index];
+	var name = names[index],
+	    lower = symbol.toLowerCase();
 
 	map.symbols[symbol] = index;
 	map.names  [symbol] = name;
+
+	map.symbols[lower] = index;
+	map.names  [lower] = name;
 });
 
 map.names  ['KB'] = map.names  ['kB'];
