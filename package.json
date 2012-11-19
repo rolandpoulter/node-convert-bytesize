@@ -1,0 +1,14 @@
+{
+	"name": "convert-bytesize",
+	"main": "./index.js",
+	"author": "rolandpoulter",
+	"version": "0.0.1",
+	"keywords": [],
+	"homepage": "https://github.com/rolandpoulter/node-convert-bytesize",
+	"repository": {"type": "git", "url": "git://github.com/rolandpoulter/node-convert-bytesize"},
+	"description": "",
+	"contributors": [],
+	"dependencies": {},
+	"devDependencies": {"spc": "0.0.2"},
+	"scripts": {"test": "node ./test"}
+}
