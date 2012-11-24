@@ -1,6 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/rolandpoulter/node-convert-bytesize.png)](http://travis-ci.org/rolandpoulter/node-convert-bytesize)
-
-Copyright (C) Infinity
+Copyright (C) NaN
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
