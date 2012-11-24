@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/rolandpoulter/node-convert-bytesize.png)](http://travis-ci.org/rolandpoulter/node-convert-bytesize)
+
 Copyright (C) Infinity
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

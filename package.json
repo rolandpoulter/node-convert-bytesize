@@ -9,6 +9,6 @@
 	"description": "",
 	"contributors": [],
 	"dependencies": {},
-	"devDependencies": {"spc": "0.0.1"},
+	"devDependencies": {"spc": "0.0.3"},
 	"scripts": {"test": "node ./test"}
 }
